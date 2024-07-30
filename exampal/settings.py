@@ -24,15 +24,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-t-un##a0map$ya_w%wa5&(5$%509u79)c3%w=tvy&(y*r8)i%k'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['exampal.fly.dev', '127.0.0.1']
 
 AUTH_USER_MODEL = 'questions.CustomUser'
 
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://exampal.fly.dev',
+    
+]
 
 # Application definition
 
@@ -86,6 +91,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation
