@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta name="generator" content="Astro v4.3.0">
     <title>Practice50 - 50 practice questions to ace your test</title>
@@ -47,9 +47,9 @@
                             class="uppercase mt-0.5 leading-none text-[10px] ml-1 font-bold bg-gray-200 text-slate-700 px-2 py-1 rounded-md">PRO</span>
                     </a>
                     <div class="block lg:hidden">
-                        <button id="astronav-menu" class="rounded-full text-center px-5 py-2.5 bg-white border-2 border-indigo-500 hover:bg-indigo-50  items-center justify-center" aria-label="Toggle Menu">
+                        <a href="{% url 'generate' %}" id="astronav-menu" class="rounded-full text-center px-5 py-2.5 bg-white border-2 border-indigo-500 hover:bg-indigo-50  items-center justify-center" aria-label="Toggle Menu">
                             <i class="fa fa-arrow-right"></i>
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <nav class="astronav-items astronav-toggle hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
@@ -61,10 +61,10 @@
                
                 <div>
                     <div class="hidden lg:flex items-center gap-4">
-                        <a href="#"
+                        <!-- <a href="#"
                             class="text-sm px-2 py-1 transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 focus-visible:outline-none focus-visible:shadow-outline-indigo rounded-full">Log
-                            in</a>
-                        <a href="#"
+                            in</a> -->
+                        <a href="{% url 'generate' %}"
                             class="rounded-full text-center transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 focus-visible:outline-none focus-visible:shadow-outline-indigo px-4 py-2 text-sm bg-indigo-600 text-white hover:bg-indigo-800 inline-flex items-center group gap-px">
                             <span>Try for Free</span>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
@@ -95,7 +95,7 @@
                     </p>
                     <div class="mt-6 flex flex-col sm:flex-row sm:justify-center ">
                         
-                        <a href="https://github.com/surjithctly/astroship" rel="noopener" target="_blank"
+                        <a href="{% url 'generate' %}" rel="noopener" target="_blank"
                             class="rounded-full text-center transition focus-visible:ring-2 focus-visible:ring-offset-2 
                             focus-visible:ring-indigo-500 focus-visible:outline-none focus-visible:shadow-outline-indigo 
                             px-7 py-2.5 bg-white border-2 border-indigo-500 hover:bg-indigo-50 text-indigo-600  
@@ -106,14 +106,14 @@
                 <div class="py-3 lg:col-span-3 lg:-mr-44">
                     <picture>
                         <source
-                            srcset="{% static 'images/p200.svg' %}"
+                            srcset="{% static 'images/P200.svg' %}"
                             type="image/avif" sizes="(max-width: 1024px) 100vw, 50vw">
                         <source
-                            srcset="{% static 'images/p200.svg' %}"
+                            srcset="{% static 'images/P200.svg' %}"
                             type="image/webp" sizes="(max-width: 1024px) 100vw, 50vw">
-                        <img src="{% static 'images/p200.svg' %}"
-                            srcset="/_astro/hero-screenshot.HaV5_ts2_ZSMuoP.png 240w, /_astro/hero-screenshot.HaV5_ts2_2fuB1b.png 540w, /_astro/hero-screenshot.HaV5_ts2_ZMCIo6.png 720w, /_astro/hero-screenshot.HaV5_ts2_10u77m.png 1183w"
-                            alt="Astronaut in the air" sizes="(max-width: 1024px) 100vw, 50vw" loading="eager"
+                        <img src="{% static 'images/P200.svg' %}"
+                            srcset="{% static 'images/p200.svg' %}"
+                            alt="Questions Generated Image" sizes="(max-width: 1024px) 100vw, 50vw" loading="eager"
                             fetchpriority="high" width="1183" height="787" decoding="async">
                     </picture>
                 </div>
@@ -221,14 +221,14 @@
                     <div class="tab-content" id="v-pills-tabContent">
                         <picture>
                             <source
-                                srcset="{% static 'images/p2f.svg' %}"
-                                type="image/avif" sizes="(max-width: 1024px) 100vw, 50vw">
+                                srcset="{% static 'images/P2f.svg' %}"
+                                type="image/svg" sizes="(max-width: 1024px) 100vw, 50vw">
                             <source
-                                srcset="{% static 'images/p2f.svg' %}"
-                                type="image/webp" sizes="(max-width: 1024px) 100vw, 50vw">
-                            <img src="{% static 'images/p2f.svg' %}"
-                                srcset="/_astro/hero-screenshot.HaV5_ts2_ZSMuoP.png 240w, /_astro/hero-screenshot.HaV5_ts2_2fuB1b.png 540w, /_astro/hero-screenshot.HaV5_ts2_ZMCIo6.png 720w, /_astro/hero-screenshot.HaV5_ts2_10u77m.png 1183w"
-                                alt="Astronaut in the air" sizes="(max-width: 1024px) 100vw, 50vw" loading="eager"
+                                srcset="{% static 'images/P2f.svg' %}"
+                                type="image/svg" sizes="(max-width: 1024px) 100vw, 50vw">
+                            <img src="{% static 'images/P2f.svg' %}"
+                                srcset"{% static 'images/P2f.svg' %}"
+                                alt="Input Options" sizes="(max-width: 1024px) 100vw, 50vw" loading="eager"
                                 fetchpriority="high" width="1183" height="787" decoding="async">
                         </picture>
                     </div>
@@ -247,13 +247,13 @@
                 class="md:motion-safe:animate-marquee w-auto py-5 overflow-x-auto flex flex-nowrap min-w-full shrink-0 items-stretch gap-10 snap-x snap-mandatory px-5"><div
                     class=" rounded-2xl relative p-2 bg-gray-50/60 backdrop-blur-md transition-all ring-1 ring-gray-200/50 shadow hover:shadow-lg w-[calc(100vw-5.75rem)] max-w-md flex flex-col justify-between snap-start snap-always shrink-0 first-of-type:scroll-m-10 scroll-m-5">
                     <picture>
-                        <source srcset="{% static 'images/Frame5.svg' %}" type="image/avif" sizes="(max-width: 1024px) 100vw, 50vw">
+                        <source srcset="{% static 'images/Frame5.svg' %}" type="image/svg" sizes="(max-width: 1024px) 100vw, 50vw">
                         <source
                             srcset="{% static 'images/Frame5.svg' %}"
                             type="image/webp" sizes="(max-width: 1024px) 100vw, 50vw">
                         <img src="{% static 'images/Frame5.svg' %}"
-                            srcset="/_astro/hero-screenshot.HaV5_ts2_ZSMuoP.png 240w, /_astro/hero-screenshot.HaV5_ts2_2fuB1b.png 540w, /_astro/hero-screenshot.HaV5_ts2_ZMCIo6.png 720w, /_astro/hero-screenshot.HaV5_ts2_10u77m.png 1183w"
-                            alt="Astronaut in the air" sizes="(max-width: 1024px) 100vw, 50vw" loading="eager" fetchpriority="high"
+                            srcset=""{% static 'images/Frame5.svg' %}"
+                            alt="Sample Short Answer Questions" sizes="(max-width: 1024px) 100vw, 50vw" loading="eager" fetchpriority="high"
                             width="1183" height="787" decoding="async">
                     </picture>
                 
@@ -266,8 +266,8 @@
                             srcset="{% static 'images/Frame6.svg' %}"
                             type="image/webp" sizes="(max-width: 1024px) 100vw, 50vw">
                         <img src="{% static 'images/Frame6.svg' %}"
-                            srcset="/_astro/hero-screenshot.HaV5_ts2_ZSMuoP.png 240w, /_astro/hero-screenshot.HaV5_ts2_2fuB1b.png 540w, /_astro/hero-screenshot.HaV5_ts2_ZMCIo6.png 720w, /_astro/hero-screenshot.HaV5_ts2_10u77m.png 1183w"
-                            alt="Astronaut in the air" sizes="(max-width: 1024px) 100vw, 50vw" loading="eager" fetchpriority="high"
+                            srcset="{% static 'images/Frame6.svg' %}"
+                            alt="Sample Essay Questions" sizes="(max-width: 1024px) 100vw, 50vw" loading="eager" fetchpriority="high"
                             width="1183" height="787" decoding="async">
                     </picture>
                 
@@ -280,8 +280,8 @@
                             srcset="{% static 'images/Frame7.svg' %}"
                             type="image/webp" sizes="(max-width: 1024px) 100vw, 50vw">
                         <img src="{% static 'images/Frame7.svg' %}"
-                            srcset="/_astro/hero-screenshot.HaV5_ts2_ZSMuoP.png 240w, /_astro/hero-screenshot.HaV5_ts2_2fuB1b.png 540w, /_astro/hero-screenshot.HaV5_ts2_ZMCIo6.png 720w, /_astro/hero-screenshot.HaV5_ts2_10u77m.png 1183w"
-                            alt="Astronaut in the air" sizes="(max-width: 1024px) 100vw, 50vw" loading="eager" fetchpriority="high"
+                            srcset="{% static 'images/Frame7.svg' %}"
+                            alt="Sample Multiple Choice Questions" sizes="(max-width: 1024px) 100vw, 50vw" loading="eager" fetchpriority="high"
                             width="1183" height="787" decoding="async">
                     </picture>
                     
@@ -364,7 +364,7 @@
         <p class="text-white/70 mt-4 text-lg md:text-xl">Get started now to receive your first set of 50 customized practice questions for free.
         </p>
         <div class="flex mt-5">
-            <a href="#" class="rounded-full text-center transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500
+            <a href="{% url 'generate' %}" class="rounded-full text-center transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500
              focus-visible:outline-none focus-visible:shadow-outline-indigo px-7 py-2.5 bg-white text-indigo-800 border-2 border-transparent">
              Try for free </a>
         </div>

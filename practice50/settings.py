@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['practice50.fly.dev', '127.0.0.1']
 
@@ -36,7 +36,7 @@ AUTH_USER_MODEL = 'questions.CustomUser'
 
 CSRF_TRUSTED_ORIGINS = [
     'https://practice50.fly.dev',
-    
+
 ]
 
 # Application definition
@@ -91,7 +91,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 
 # Password validation
