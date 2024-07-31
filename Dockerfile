@@ -24,4 +24,4 @@ COPY . /code
 
 EXPOSE 8000
 
-CMD ["gunicorn", "--bind", ":8000", "--workers", "2", "exampal.wsgi"]
+CMD ["gunicorn", "--bind", ":8000", "--workers", "2", "practice50.wsgi"]
