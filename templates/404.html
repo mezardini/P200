@@ -1,0 +1,105 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="generator" content="Astro v4.3.0">
+    <title>Practice50 - 50 practice questions to ace your test</title>
+    <link rel="canonical" href="https://practice50.fly.dev/">
+    <meta name="description"
+        content="Practice50 - Ace your exam by practicing 50 questions">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Practice50 - 50 practice questions to ace your test">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://practice50.fly.dev/static/images/Practice50OG.png">
+    <meta property="og:url" content="https://practice50.fly.dev/">
+    <meta property="og:image:url" content="https://practice50.fly.dev/static/images/Practice50OG.png">
+    <meta property="og:image:alt" content="Practice50 Homepage Screenshot">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@0xmezard">
+    <meta name="twitter:creator" content="@0xmezard">
+    <meta name="astro-view-transitions-enabled" content="true">
+    <meta name="astro-view-transitions-fallback" content="animate">
+    <link rel="stylesheet" href="{% static 'css/404.css' %}" />
+    <!-- <link rel="stylesheet" href="{% static 'css/mainc.css' %}" /> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap-grid.min.css"
+        integrity="sha512-i1b/nzkVo97VN5WbEtaPebBG8REvjWeqNclJ6AItj7msdVcaveKrlIIByDpvjk5nwHjXkIqGZscVxOrTb9tsMA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body style="width: 100%; overflow-x: hidden;">
+    <header class="astronav-sticky-header sticky top-0 border-b z-20 transition-all py-4 border-transparent">
+        <div class="max-w-screen-xl mx-auto px-5">
+            <div class="flex flex-col lg:flex-row justify-between items-center relative z-10"
+                data-astro-transition-scope="astro-o7bz76pi-1">
+                <div class="flex w-full lg:w-auto items-center justify-between">
+                    <a 
+                        class="text-lg flex items-center transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 focus-visible:outline-none focus-visible:shadow-outline-indigo rounded-full px-2 -ml-2">
+                        <span class="text-slate-600">Practice</span>
+                        <span class="font-bold text-indigo-600">50</span>
+                    </a>
+                    <div class="block lg:hidden">
+                        <a href="{% url 'generate' %}" id="astronav-menu" class="rounded-full text-center px-5 py-2.5 bg-white border-2 border-indigo-500 hover:bg-indigo-50  items-center justify-center" aria-label="Toggle Menu">
+                            <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <nav class="astronav-items astronav-toggle hidden w-full lg:w-auto mt-2 lg:flex lg:mt-0">
+                    <ul class="flex flex-col lg:flex-row lg:gap-3">
+                        
+                    </ul>
+                    
+                </nav>
+               
+                <div>
+                    <div class="hidden lg:flex items-center gap-4">
+                        <!-- <a href="#"
+                            class="text-sm px-2 py-1 transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 focus-visible:outline-none focus-visible:shadow-outline-indigo rounded-full">Log
+                            in</a> -->
+                        <a href="{% url 'generate' %}"
+                            class="rounded-full text-center transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 focus-visible:outline-none focus-visible:shadow-outline-indigo px-4 py-2 text-sm bg-indigo-600 text-white hover:bg-indigo-800 inline-flex items-center group gap-px">
+                            <span>Try for Free</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                class="w-4 h-4 mt-px group-hover:translate-x-1 transition-transform">
+                                <path fill-rule="evenodd"
+                                    d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+  
+
+    <div class="max-w-screen-xl mx-auto px-5"> <div class="min-h-[calc(100vh-20rem)] flex items-center justify-center"> <div class="mt-16 text-center"> <h1 class="text-6xl lg:text-9xl font-bold lg:tracking-tight bg-gradient-to-b from-indigo-600 to-indigo-300 bg-clip-text text-transparent">
+    404
+    </h1> <p class="text-lg lg:text-2xl font-medium mt-4 text-slate-700">
+    The page you are looking for doesn’t exist.
+    </p> <div class="mt-10"> <a href="{% url 'index' %}" class="rounded-full text-center transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 focus-visible:outline-none focus-visible:shadow-outline-indigo px-7 py-2.5 bg-white border-2 border-indigo-500 hover:bg-indigo-50 text-indigo-600 ">Back to Home </a> </div> </div> </div> </div>
+
+   
+
+    <footer class="py-4 bg-slate-100 border-t border-slate-100">
+        <div class="mt-4 pt-3 px-5 border-t border-slate-200">
+            <div class="max-w-screen-xl mx-auto px-5">
+                <p class="text-center text-sm text-slate-600 [text-wrap:balance]">Copyright © 2024 Practice50. All rights
+                    reserved.
+                </p>
+                <p class="text-center text-xs text-slate-600 mt-2">
+                    <a href="/terms" class="hover:text-indigo-500">Terms</a>
+                    ・ <a href="/privacy" class="hover:text-indigo-500">Privacy</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

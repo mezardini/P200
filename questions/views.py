@@ -33,21 +33,21 @@ def questions(request):
     mcq_message = [
         ChatMessage(
             role="user",
-            content=f"Generate 20 multiple choice questions for this course whose scope of study is {scope_of_study} and the difficulty level of the questions should be {difficulty_level} level, the study goal is {study_goals}, 4 choices for each question"
+            content=f"Generate 2 multiple choice questions for this course whose scope of study is {scope_of_study} and the difficulty level of the questions should be {difficulty_level} level, the study goal is {study_goals}, 4 choices for each question"
         )
     ]
 
     saq_message = [
         ChatMessage(
             role="user",
-            content=f"Generate 15 short answer questions for this course whose scope of study is {scope_of_study} and the difficulty level of the questions should be {difficulty_level} level, the study goal is {study_goals}"
+            content=f"Generate 1 short answer questions for this course whose scope of study is {scope_of_study} and the difficulty level of the questions should be {difficulty_level} level, the study goal is {study_goals}"
         )
     ]
 
     eq_message = [
         ChatMessage(
             role="user",
-            content=f"Generate 15 essay questions for this course whose scope of study is {scope_of_study} and the difficulty level of the questions should be {difficulty_level} level, the study goal is {study_goals}"
+            content=f"Generate 1 essay questions for this course whose scope of study is {scope_of_study} and the difficulty level of the questions should be {difficulty_level} level, the study goal is {study_goals}"
         )
     ]
 
@@ -81,3 +81,10 @@ def questions(request):
     # question.save()
 
     return render(request, 'questions_partial.html', result)
+
+
+def error_404_view(request, exception):
+
+    # we add the path to the 404.html file
+    # here. The name of our HTML file is 404.html
+    return render(request, '404.html')
