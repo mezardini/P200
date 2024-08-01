@@ -62,3 +62,17 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return f'{self.email}'
+
+
+
+class Questions(models.Model):
+    scope_of_study = models.TextField()
+    study_goals = models.TextField()
+    difficulty_level = models.TextField()
+    multiple_choice_questions = models.TextField()
+    short_answer_questions = models.TextField()
+    essay_questions = models.TextField()
+    question_id = models.FloatField()
+
+    def __str(self):
+        return self.question_id
