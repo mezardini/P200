@@ -6,3 +6,4 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('questions/', views.questions, name="questions"),
 ]
+
