@@ -18,4 +18,6 @@ urllib3
 whitenoise==6.1.0
 django-environ==0.9.0
 mistralai==0.1.8
-django-allauth
+django-allauth==0.52
+pyjwt
+cryptography

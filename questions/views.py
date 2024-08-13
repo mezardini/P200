@@ -101,3 +101,18 @@ def error_404_view(request, exception):
 def signin(request):
 
     return render(request, 'signin.html')
+
+
+def dashboard(request):
+
+    return render(request, 'dashboard.html')
+
+
+def TandC(request):
+
+    return render(request, 'TandC.html')
+
+
+def policy(request):
+
+    return render(request, 'policy.html')
