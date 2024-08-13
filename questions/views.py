@@ -1,3 +1,9 @@
+from django.shortcuts import redirect
+from .models import Questions, CustomUser as User
+from django.views import View
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import send_mail, send_mass_mail
 import random
 from mistralai.models.chat_completion import ChatMessage
@@ -6,9 +12,9 @@ from django.shortcuts import render
 import environ
 env = environ.Env()
 environ.Env.read_env()
-from .models import Questions
 
 
+@login_required(login_url='signin')
 def generate(request):
 
     
@@ -18,6 +24,7 @@ def generate(request):
 def index(request):
 
     return render(request, 'home.html')
+
 
 
 def questions(request):
@@ -68,18 +75,20 @@ def questions(request):
 
         result[key] = chat_response.choices[0].message.content
 
-    # question = Questions.objects.create(
+    user = User.objects.get(id=request.user.id)
+    question = Questions.objects.create(
 
-    #     scope_of_study=scope_of_study,
-    #     study_goals=study_goals,
-    #     difficulty_level=difficulty_level,
-    #     multiple_choice_questions=result.get('m_c_q', ''),
-    #     short_answer_questions=result.get('s_a_q', ''),
-    #     essay_questions=result.get('e_q', ''),
-    #     question_id=random.randint(100000, 999999)
+        scope_of_study=scope_of_study,
+        study_goals=study_goals,
+        difficulty_level=difficulty_level,
+        multiple_choice_questions=result.get('m_c_q', ''),
+        short_answer_questions=result.get('s_a_q', ''),
+        essay_questions=result.get('e_q', ''),
+        question_id=random.randint(100000, 999999),
+        creator=user,
 
-    # )
-    # question.save()
+    )
+    question.save()
     send_mail(
         'New Question at Practice50',
         'A question: "'+scope_of_study+'" has been asked on Practice50',
@@ -103,9 +112,9 @@ def signin(request):
     return render(request, 'signin.html')
 
 
-def dashboard(request):
+# def dashboard(request):
 
-    return render(request, 'dashboard.html')
+#     return render(request, 'dashboard.html')
 
 
 def TandC(request):
@@ -116,3 +125,29 @@ def TandC(request):
 def policy(request):
 
     return render(request, 'policy.html')
+
+
+class DashboardView(LoginRequiredMixin, View):
+    login_url = 'signin'
+    template_name = 'dashboard.html'
+
+    def get(self, request):
+        user_id = request.user.id
+        user = User.objects.get(id=user_id)
+        
+
+        try:
+            questions = Questions.objects.filter(creator=user_id)
+            user = User.objects.get(id=user_id)
+            user_credit = int(user.credit) * 50
+
+        except ObjectDoesNotExist:
+            user = None
+            questions = []
+
+        context = {
+            'questions': questions,
+            'user': user,
+            'user_credit': user_credit
+        }
+        return render(request, self.template_name, context)
