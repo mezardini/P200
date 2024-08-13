@@ -1,3 +1,4 @@
+from django.core.mail import send_mail, send_mass_mail
 import random
 from mistralai.models.chat_completion import ChatMessage
 from mistralai.client import MistralClient
@@ -79,6 +80,13 @@ def questions(request):
 
     # )
     # question.save()
+    send_mail(
+        'New Question at Practice50',
+        'A question: "'+scope_of_study+'" has been asked on Practice50',
+        'settings.EMAIL_HOST_USER',
+        ['mezardini@gmail.com'],
+        fail_silently=False,
+    )
 
     return render(request, 'questions_partial.html', result)
 
@@ -88,3 +96,8 @@ def error_404_view(request, exception):
     # we add the path to the 404.html file
     # here. The name of our HTML file is 404.html
     return render(request, '404.html')
+
+
+def signin(request):
+
+    return render(request, 'signin.html')
