@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
 from .models import Questions, CustomUser as User
 from django.views import View
@@ -13,7 +14,6 @@ import environ
 env = environ.Env()
 environ.Env.read_env()
 
-
 @login_required(login_url='signin')
 def generate(request):
 
@@ -28,76 +28,89 @@ def index(request):
 
 
 def questions(request):
-    scope_of_study = request.POST['details']
-    study_goals = request.POST['study_goals']
-    difficulty_level = request.POST['difficulty']
 
-    api_key = env('MistralAPIKEY')
-    model = "mistral-tiny"
+    if request.method == 'POST':
+        scope_of_study = request.POST['details']
+        study_goals = request.POST['study_goals']
+        difficulty_level = request.POST['difficulty']
 
-    client = MistralClient(api_key=api_key)
+        api_key = env('MistralAPIKEY')
+        model = "mistral-tiny"
+
+        client = MistralClient(api_key=api_key)
 
 
-    mcq_message = [
-        ChatMessage(
-            role="user",
-            content=f"Generate 20 multiple choice questions for this course whose scope of study is {scope_of_study} and the difficulty level of the questions should be {difficulty_level} level, the study goal is {study_goals}, 4 choices for each question"
+        mcq_message = [
+            ChatMessage(
+                role="user",
+                content=f"Generate 20 multiple choice questions for this course whose scope of study is {scope_of_study} and the difficulty level of the questions should be {difficulty_level} level, the study goal is {study_goals}, 4 choices for each question"
+            )
+        ]
+
+        saq_message = [
+            ChatMessage(
+                role="user",
+                content=f"Generate 15 short answer questions for this course whose scope of study is {scope_of_study} and the difficulty level of the questions should be {difficulty_level} level, the study goal is {study_goals}"
+            )
+        ]
+
+        eq_message = [
+            ChatMessage(
+                role="user",
+                content=f"Generate 15 essay questions for this course whose scope of study is {scope_of_study} and the difficulty level of the questions should be {difficulty_level} level, the study goal is {study_goals}"
+            )
+        ]
+
+        sections = {
+            'm_c_q': mcq_message,
+            's_a_q': saq_message,
+            'e_q': eq_message,
+        }
+
+        result = {}
+
+        for key, message in sections.items():
+            chat_response = client.chat(
+                model=model,
+                messages=message,
+            )
+
+            result[key] = chat_response.choices[0].message.content
+
+        user = User.objects.get(id=request.user.id)
+        question = Questions.objects.create(
+
+            scope_of_study=scope_of_study,
+            study_goals=study_goals,
+            difficulty_level=difficulty_level,
+            multiple_choice_questions=result.get('m_c_q', ''),
+            short_answer_questions=result.get('s_a_q', ''),
+            essay_questions=result.get('e_q', ''),
+            question_id=random.randint(100000, 999999),
+            creator=user,
+
         )
-    ]
-
-    saq_message = [
-        ChatMessage(
-            role="user",
-            content=f"Generate 15 short answer questions for this course whose scope of study is {scope_of_study} and the difficulty level of the questions should be {difficulty_level} level, the study goal is {study_goals}"
+        question.save()
+        send_mail(
+            'New Question at Practice50',
+            'A question: "'+scope_of_study+'" has been asked on Practice50',
+            'settings.EMAIL_HOST_USER',
+            ['mezardini@gmail.com'],
+            fail_silently=False,
         )
-    ]
+        return redirect(answer, question.question_id)
+    
+    else:
 
-    eq_message = [
-        ChatMessage(
-            role="user",
-            content=f"Generate 15 essay questions for this course whose scope of study is {scope_of_study} and the difficulty level of the questions should be {difficulty_level} level, the study goal is {study_goals}"
-        )
-    ]
+        return redirect(generate)
 
-    sections = {
-        'm_c_q': mcq_message,
-        's_a_q': saq_message,
-        'e_q': eq_message,
-    }
 
-    result = {}
+def answer(request, question_id):
 
-    for key, message in sections.items():
-        chat_response = client.chat(
-            model=model,
-            messages=message,
-        )
+    question = Questions.objects.get(question_id=question_id)
 
-        result[key] = chat_response.choices[0].message.content
-
-    user = User.objects.get(id=request.user.id)
-    question = Questions.objects.create(
-
-        scope_of_study=scope_of_study,
-        study_goals=study_goals,
-        difficulty_level=difficulty_level,
-        multiple_choice_questions=result.get('m_c_q', ''),
-        short_answer_questions=result.get('s_a_q', ''),
-        essay_questions=result.get('e_q', ''),
-        question_id=random.randint(100000, 999999),
-        creator=user,
-
-    )
-    question.save()
-    send_mail(
-        'New Question at Practice50',
-        'A question: "'+scope_of_study+'" has been asked on Practice50',
-        'settings.EMAIL_HOST_USER',
-        ['mezardini@gmail.com'],
-        fail_silently=False,
-    )
-
-    return render(request, 'questions_partial.html', result)
+    context = {'question': question}
+    return render(request, 'answers.html', context)
 
 
 def error_404_view(request, exception):
@@ -112,9 +125,9 @@ def signin(request):
     return render(request, 'signin.html')
 
 
-# def dashboard(request):
-
-#     return render(request, 'dashboard.html')
+def signout(request):
+    logout(request)
+    return redirect('login')
 
 
 def TandC(request):

@@ -78,8 +78,8 @@
                             class="text-sm px-2 py-1 transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 focus-visible:outline-none focus-visible:shadow-outline-indigo rounded-full">Log
                             in</a> -->
                         <button
-                            class="rounded-full text-center transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 focus-visible:outline-none focus-visible:shadow-outline-indigo px-4 py-2 text-sm bg-indigo-600 text-white hover:bg-indigo-800 inline-flex items-center group gap-px">
-                            <span>Try for Free</span>
+                            class="rounded-full text-center btn btn-outline-primary">
+                            <span>50 Practice Questions</span>
                         </button>
                     </div>
                 </div>
@@ -90,13 +90,13 @@
     <div class="container" style="margin-top: 5%;">
         <div class="left-side">
             <div class="container price-wrapper">
-                <div class="loading" id="loading"></div>
-                <form hx-post="{% url 'questions' %}" hx-target="#questions" hx-trigger="submit">
+                <div class="loading" id="loading" style="display: none;"></div>
+                <form action="{% url 'questions' %}" method="POST">
                     {% csrf_token %}
                     <div class="col-md-12">
                         <label for="exampleFormControlInput1">Scope of study</label>
                         <textarea type="text" class="form-control" rows="6" name="details"
-                            placeholder="Example: This course explores the dynamics of power, governance, and policy-making, analyzing political systems, institutions, and behavior to understand contemporary global and domestic issues."
+                            placeholder="Theories of political development and modernization, state formation and nation-building."
                             required></textarea>
                     </div>
                     <div class="row">
@@ -115,22 +115,22 @@
                         </div>
                     </div>
                     <br>
-                    <button class="btn btn-primary" type="submit">Generate Practice Questions</button>
+                    <button class="btn btn-primary" id="load_btn" type="submit">Generate Practice Questions</button>
                 </form>
             </div>
         </div>
 
-        <div class="right-side">
-            <!--pricing-->
+        <!-- <div class="right-side">
+            
             <section class="pt-4 ">
                 <div class="container price-wrapper" id="questions"></div>
             </section>
-            <!--pricing-->
-        </div>
+            
+        </div> -->
         <br><br><br>
     </div>
 
-    <script>
+    <!-- <script>
         document.addEventListener('DOMContentLoaded', function () {
             var loader = document.getElementById('loading');
 
@@ -149,6 +149,13 @@
                 loader.style.display = 'none';
             });
         });
+    </script> -->
+
+    <script>
+        document.getElementById('load_btn').addEventListener('click', function (event) {
+                document.getElementById('loading').style.display = 'block';
+            });
+
     </script>
 
 

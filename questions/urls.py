@@ -7,9 +7,10 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('questions/', views.questions, name="questions"),
     path('signin/', views.signin, name='signin'),
-    # path('dashboard/', views.dashboard, name='dashboard'),
+    path('answer/<int:question_id>/', views.answer, name='answer'),
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
     path('terms/', views.TandC, name='TandC'),
     path('policy/', views.policy, name='policy'),
+    path('signout/', views.signout, name='signout'),
 ]
 

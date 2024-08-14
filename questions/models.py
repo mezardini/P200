@@ -48,6 +48,7 @@ class UserManager(BaseUserManager):
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=255, unique=True)
     credit = models.IntegerField(default=3, null=True)
+    username = models.CharField(max_length=50, null=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
@@ -70,7 +71,7 @@ class Questions(models.Model):
     multiple_choice_questions = models.TextField()
     short_answer_questions = models.TextField()
     essay_questions = models.TextField()
-    question_id = models.IntegerField()
+    question_id = models.IntegerField(unique=True, null=True)
     creator = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True)
 
     def __str(self):
