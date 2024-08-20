@@ -14,7 +14,7 @@ import environ
 env = environ.Env()
 environ.Env.read_env()
 
-@login_required(login_url='signin')
+# @login_required(login_url='signin')
 def generate(request):
 
     
@@ -43,21 +43,21 @@ def questions(request):
         mcq_message = [
             ChatMessage(
                 role="user",
-                content=f"Generate 20 multiple choice questions for this course whose scope of study is {scope_of_study} and the difficulty level of the questions should be {difficulty_level} level, the study goal is {study_goals}, 4 choices for each question"
+                content=f"Generate 20 multiple choice questions for this course whose scope of study is {scope_of_study} and the difficulty level of the questions should be {difficulty_level} level, the study goal is {study_goals}, 4 choices for each question. Write the option that is correct."
             )
         ]
 
         saq_message = [
             ChatMessage(
                 role="user",
-                content=f"Generate 15 short answer questions for this course whose scope of study is {scope_of_study} and the difficulty level of the questions should be {difficulty_level} level, the study goal is {study_goals}"
+                content=f"Generate 15 short answer questions for this course whose scope of study is {scope_of_study} and the difficulty level of the questions should be {difficulty_level} level, the study goal is {study_goals}. write the answer and make it short."
             )
         ]
 
         eq_message = [
             ChatMessage(
                 role="user",
-                content=f"Generate 15 essay questions for this course whose scope of study is {scope_of_study} and the difficulty level of the questions should be {difficulty_level} level, the study goal is {study_goals}"
+                content=f"Generate 15 essay questions for this course whose scope of study is {scope_of_study} and the difficulty level of the questions should be {difficulty_level} level, the study goal is {study_goals}. write the answer and make it short."
             )
         ]
 
@@ -77,7 +77,10 @@ def questions(request):
 
             result[key] = chat_response.choices[0].message.content
 
-        user = User.objects.get(id=request.user.id)
+        if request.user.is_authenticated:
+            user = User.objects.get(id=request.user.id)
+        else:
+            user = User.objects.get(id=1)
         question = Questions.objects.create(
 
             scope_of_study=scope_of_study,
@@ -98,7 +101,11 @@ def questions(request):
             ['mezardini@gmail.com'],
             fail_silently=False,
         )
-        return redirect(answer, question.question_id)
+        if request.user.is_authenticated:
+            return redirect(answer, question.question_id)
+        else:
+            context = {'question': question}
+            return render(request, 'answers.html', context)
     
     else:
 

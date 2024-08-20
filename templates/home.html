@@ -77,47 +77,100 @@
         </div>
     </header>
   
-    <div class="overflow-x-clip py-xl-9 py-9 ">
+    <!-- <div class="overflow-x-clip py-6" style="margin-top: 5%;">
         <div class="max-w-screen-xl mx-auto px-5">
-            <main class="grid lg:grid-cols-5 place-items-center relative justify-items-center">
+            <main class="grid place-items-center relative">
                 <div
                     class="absolute w-96 h-96 blur-2xl -z-10 bg-gradient-radial from-indigo-200 left-1/2 transform -translate-x-1/2 top-0">
                 </div>
                 <div
                     class="absolute w-96 h-96 blur-2xl -z-10 bg-gradient-radial from-purple-200 left-1/2 transform -translate-x-1/2 top-10">
                 </div>
-                <div class="max-w-sm md:max-w-max lg:col-span-2">
-                    <h1
-                        class="text-3xl lg:text-4xl xl:text-6xl font-bold lg:tracking-tight xl:tracking-tighter text-center">
-                        Ace your exam by solving <span style="color: blue;">50</span> practice questions
+    
+                <div class="max-w-sm md:max-w-max text-center">
+                    <h1 class="text-3xl lg:text-4xl xl:text-6xl font-bold lg:tracking-tight xl:tracking-tighter">
+                        Study better by solving <span style="color: blue;">50</span> practice questions
                     </h1>
-                    <p class="text-lg mt-4 max-w-lg text-slate-600 text-center">
+                    <p class="text-lg mt-4 text-slate-600">
                         Practice50 generates 50 practice questions based on your scope of study, study goals, and difficulty
                         level to get you prepared.
                     </p>
-                    <div class="mt-6 flex flex-col sm:flex-row sm:justify-center">
-                        <a href="{% url 'generate' %}" rel="noopener"  class="rounded-full text-center transition focus-visible:ring-2 focus-visible:ring-offset-2 
-                           focus-visible:ring-indigo-500 focus-visible:outline-none focus-visible:shadow-outline-indigo 
-                           px-7 py-2.5 bg-white border-2 border-indigo-500 hover:bg-indigo-50 text-indigo-600  
-                           flex gap-1 items-center justify-center">Try for free
+                    <div class="mt-6 flex justify-center">
+                        <a href="{% url 'generate' %}" rel="noopener"
+                            class="rounded-full text-center transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 focus-visible:outline-none focus-visible:shadow-outline-indigo px-7 py-2.5 bg-white border-2 border-indigo-500 hover:bg-indigo-50 text-indigo-600 flex gap-1 items-center justify-center">
+                            Try for free
                         </a>
                     </div>
                 </div>
-                <div class="py-3 lg:col-span-3">
+    
+                <div class="py-3 mt-6">
                     <picture>
-                        <source srcset="{% static 'images/Frame-15.svg' %}" type="image/avif"
+                        <source srcset="{% static 'images/p50frame.svg' %}" type="image/avif"
                             sizes="(max-width: 1024px) 100vw, 50vw">
-                        <source srcset="{% static 'images/Frame-15.svg' %}" type="image/webp"
+                        <source srcset="{% static 'images/p50frame.svg' %}" type="image/webp"
                             sizes="(max-width: 1024px) 100vw, 50vw">
-                        <img src="{% static 'images/Frame-15.svg' %}" srcset="{% static 'images/Frame-15.svg' %}"
+                        <img src="{% static 'images/p50frame.svg' %}" srcset="{% static 'images/p50frame.svg' %}"
                             alt="Questions Generated Image" sizes="(max-width: 1024px) 100vw, 50vw" loading="eager"
                             fetchpriority="high" width="1183" height="787" decoding="async">
                     </picture>
                 </div>
             </main>
         </div>
-    </div>
+    </div> -->
 
+    <!--Hero section start-->
+    <section class="container py-lg-8 py-5" data-cue="fadeIn">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-10 col-12" data-cues="zoomIn" data-group="page-title" data-delay="700">
+                <div
+                    class="absolute w-96 h-96 blur-2xl -z-10 bg-gradient-radial from-indigo-200 left-1/2 transform -translate-x-1/2 top-0">
+                </div>
+                <div
+                    class="absolute w-96 h-96 blur-2xl -z-10 bg-gradient-radial from-purple-200 left-1/2 transform -translate-x-1/2 top-10">
+                </div>
+                <div class="text-center d-flex flex-column gap-5">
+                    <div class="d-flex justify-content-center">
+                        <a href="{% url 'generate' %}"> <span 
+                            class="bg-primary bg-opacity-10 text-primary border-primary border p-2 fs-6 rounded-pill lh-1 d-flex align-items-center">
+                            <span class="badge bg-primary">New</span>
+                            <span class="ms-2">50 Questions Free</span>
+                            <span class="ms-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17"
+                                    fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M1 8.89181C1 8.7592 1.05268 8.63202 1.14645 8.53825C1.24021 8.44448 1.36739 8.39181 1.5 8.39181H13.293L10.146 5.24581C10.0521 5.15192 9.99937 5.02458 9.99937 4.89181C9.99937 4.75903 10.0521 4.63169 10.146 4.53781C10.2399 4.44392 10.3672 4.39117 10.5 4.39117C10.6328 4.39117 10.7601 4.44392 10.854 4.53781L14.854 8.53781C14.9006 8.58425 14.9375 8.63943 14.9627 8.70017C14.9879 8.76092 15.0009 8.82604 15.0009 8.89181C15.0009 8.95757 14.9879 9.02269 14.9627 9.08344C14.9375 9.14418 14.9006 9.19936 14.854 9.24581L10.854 13.2458C10.7601 13.3397 10.6328 13.3924 10.5 13.3924C10.3672 13.3924 10.2399 13.3397 10.146 13.2458C10.0521 13.1519 9.99937 13.0246 9.99937 12.8918C9.99937 12.759 10.0521 12.6317 10.146 12.5378L13.293 9.39181H1.5C1.36739 9.39181 1.24021 9.33913 1.14645 9.24536C1.05268 9.15159 1 9.02441 1 8.89181Z"
+                                        fill="#8B3DFF" />
+                                </svg>
+                            </span>
+                        </span> </a>
+                    </div>
+                    <div class="d-flex flex-column gap-3 mx-lg-8">
+                        <h1 class="mb-0 display-4">Study better by solving <span class="text-primary">50</span> practice questions</h1>
+                        <p class="mb-0 lead">Practice50 generates 50 practice questions based on your scope of study, study goals, and difficulty
+                        level to get you prepared.</p>
+                    </div>
+                    <div class="d-flex flex-row gap-4 justify-content-center">
+                        <a href="{% url 'generate' %}" rel="noopener"
+                            class="rounded-full text-center transition focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 focus-visible:outline-none focus-visible:shadow-outline-indigo px-7 py-2.5 bg-white border-2 border-indigo-500 hover:bg-indigo-50 text-indigo-600 flex gap-1 items-center justify-center">
+                            Try for free
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="pattern-square"></div>
+    <section class="container py-lg-8 py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-12">
+                <div class="text-center position-relative" data-cue="zoomIn">
+                    <img src="{% static 'images/Frame-15.svg' %}"
+                        class="img-fluid bg-light p-3 rounded-3 border" alt="" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Hero section close-->
     
     <section class="my-xl-9 my-5">
         <div class="container">
@@ -218,17 +271,27 @@
                 <div class="col-xl-6 offset-xl-1 col-md-6 col-12">
                     <div class="tab-content" id="v-pills-tabContent">
                         <picture>
-                            <source
-                                srcset="{% static 'images/formContainer.svg' %}"
+                            <!-- <source
+                                srcset="{% static 'images/p50q.svg' %}"
                                 type="image/svg" sizes="(max-width: 1024px) 100vw, 50vw">
                             <source
+                                srcset="{% static 'images/p50q.svg' %}"
+                                type="image/svg" sizes="(max-width: 1024px) 100vw, 50vw"> -->
+                            <img src="{% static 'images/query.svg' %}"
+                                class="img-fluid bg-light p-3 rounded-3 border"
                                 srcset="{% static 'images/formContainer.svg' %}"
-                                type="image/svg" sizes="(max-width: 1024px) 100vw, 50vw">
-                            <img src="{% static 'images/formContainer.svg' %}"
-                                srcset"{% static 'images/formContainer.svg' %}"
                                 alt="Input Options" sizes="(max-width: 1024px) 100vw, 50vw" loading="eager"
                                 fetchpriority="high" width="1183" height="787" decoding="async">
                         </picture>
+                        <!-- <section class="container py-lg-8 py-5">
+                            <div class="row justify-content-center">
+                                <div class="col-md-10 col-12">
+                                    <div class="text-center position-relative" data-cue="zoomIn">
+                                        <img src="{% static 'images/query.png' %}" class="img-fluid bg-light p-3 rounded-3 border" alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </section> -->
                     </div>
                 </div>
             </div>
@@ -236,7 +299,7 @@
     </section>
 
     
-    <div class="mt-10 relative overflow-x-clip">
+    <!-- <div class="mt-10 relative overflow-x-clip">
         <div class="absolute w-96 h-96 blur-2xl -z-10 bg-gradient-radial from-indigo-100 right-1/3 -top-10"></div>
         <div class="absolute w-96 h-96 blur-2xl -z-10 bg-gradient-radial from-purple-100 right-1/3 translate-x-2/3 top-10">
         </div>
@@ -286,10 +349,405 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+    
+    <!--Award winning start-->
+    <section class="my-lg-7 py-6">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7 col-12">
+                    <div class="position-relative mx-3">
+                        <figure>
+                            <img src="{% static 'images/Frame7B.svg' %}" alt="support" class="img-fluid bg-light p-3 rounded-3 border" />
+                        </figure>
+                        <div class="position-absolute top-100 start-50 translate-middle">
+                            <div class="rounded-3 bg-success-subtle text-success-emphasis px-2 py-2 text-center">
+                                <span class="fs-6">
+                                    <span>😀</span>
+                                    <span class="ms-1">You can always set your difficulty level.</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-12">
+                    <div class="mb-6">
+                        <h2 class="mt-4">Multiple Choice Questions</h2>
+                    </div>
+                    <div class="mb-6">
+                        <ul class="list-unstyled mb-0">
+                            <li class="d-flex mb-3">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-check-circle-fill text-primary text-opacity-50" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                    </svg>
+                                </span>
+                                <span class="ms-2">
+                                    <span class="text-dark fw-semibold">Focused Practice:</span>
+                                     Helps you master key concepts by offering targeted practice.
+                                </span>
+                            </li>
+                            <li class="d-flex mb-3">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-check-circle-fill text-primary text-opacity-50" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                    </svg>
+                                </span>
+                                <span class="ms-2">
+                                    <span class="text-dark fw-semibold">Objective Grading:</span>
+                                     Easy to evaluate, ensuring consistent and unbiased grading.
+    
+                                </span>
+                            </li>
+                            <li class="d-flex mb-3">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-check-circle-fill text-primary text-opacity-50" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                    </svg>
+                                </span>
+                                <span class="ms-2">
+                                    <span class="text-dark fw-semibold">Variety of Formats:</span>
+                                    Includes single-answer and multiple-answer options to challenge understanding.
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <section class="my-lg-7 py-6">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5 col-12">
+                    <div class="mb-6">
+                        <h2 class="mt-4">Short Answer Questions</h2>
+                    </div>
+                    <div class="mb-6">
+                        <ul class="list-unstyled mb-0">
+                            <li class="d-flex mb-3">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-check-circle-fill text-primary text-opacity-50" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                    </svg>
+                                </span>
+                                <span class="ms-2">
+                                    <span class="text-dark fw-semibold">Concise Responses:</span>
+                                     Encourages clarity and precision in your answers.
+                                </span>
+                            </li>
+                            <li class="d-flex mb-3">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-check-circle-fill text-primary text-opacity-50" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                    </svg>
+                                </span>
+                                <span class="ms-2">
+                                    <span class="text-dark fw-semibold">Versatile Topics:</span>
+                                     Suitable for assessing knowledge across a wide range of subjects.
+
+                                </span>
+                            </li>
+                            <li class="d-flex mb-3">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-check-circle-fill text-primary text-opacity-50" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                    </svg>
+                                </span>
+                                <span class="ms-2">
+                                    <span class="text-dark fw-semibold">Critical Thinking:</span>
+                                     Requires deeper understanding and application of knowledge.
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-12">
+                    <div class="position-relative mx-3">
+                        <figure>
+                            <img src="{% static 'images/Frame5B.svg' %}" alt="support"
+                                class="img-fluid bg-light p-3 rounded-3 border"/>
+                        </figure>
+                        <div class="position-absolute top-100 start-50 translate-middle">
+                            <div class="rounded-3 bg-success-subtle text-success-emphasis px-2 py-2 text-center">
+                                <span class="fs-6">
+                                    <span>😀</span>
+                                    <span class="ms-1">You can always set your difficulty level.</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="my-lg-7 py-6">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7 col-12">
+                    <div class="position-relative mx-3">
+                        <figure>
+                            <img src="{% static 'images/Frame6B.svg' %}" alt="support" class="img-fluid bg-light p-3 rounded-3 border" />
+                        </figure>
+                        <div class="position-absolute top-100 start-50 translate-middle">
+                            <div class="rounded-3 bg-success-subtle text-success-emphasis px-2 py-2 text-center">
+                                <span class="fs-6">
+                                    <span>😀</span>
+                                    <span class="ms-1">You can always set your difficulty level.</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-12">
+                    <div class="mb-6">
+                        <h2 class="mt-4">Essay Questions</h2>
+                    </div>
+                    <div class="mb-6">
+                        <ul class="list-unstyled mb-0">
+                            <li class="d-flex mb-3">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-check-circle-fill text-primary text-opacity-50" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                    </svg>
+                                </span>
+                                <span class="ms-2">
+                                    <span class="text-dark fw-semibold">In-Depth Analysis:</span>
+                                     Encourages comprehensive exploration of topics.
+                                </span>
+                            </li>
+                            <li class="d-flex mb-3">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-check-circle-fill text-primary text-opacity-50" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                    </svg>
+                                </span>
+                                <span class="ms-2">
+                                    <span class="text-dark fw-semibold">Complex Topics:</span>
+                                    Ideal for exploring nuanced and multifaceted subjects.
+    
+                                </span>
+                            </li>
+                            <li class="d-flex mb-3">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-check-circle-fill text-primary text-opacity-50" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                    </svg>
+                                </span>
+                                <span class="ms-2">
+                                    <span class="text-dark fw-semibold">Critical Evaluation:</span>
+                                    Tests your ability to construct and defend arguments.
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <!--Award winning end-->
+
+    <!--plans-->
+    <section class="mb-xl-9 my-4">
+        <div class="container">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="text-center mb-xl-7 mb-5">
+                    <h2 class="mb-3">
+                        Pricing
+                    </h2>
+                    <p class="mb-0">
+                        Our AI-powered platform generates 50 practice questions per query, tailored to your specific scope of study. Each query
+                        focuses on the most relevant topics, ensuring you get the targeted practice you need.
+                    </p>
+                </div>
+            </div>
+            <!-- Pricing Style 2 -->
+            <div class="table-responsive-lg">
+                <div class="row flex-nowrap pb-4 me-5 me-lg-0">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-12">
+                        <!--card-->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mb-5">
+                                    <h3 class="mb-4 d-flex align-items-center">
+                                        <span class="text-dark">$6</span>
+                                        <span class="text-body-tertiary ms-2 fs-6 fw-normal">/
+                                            year</span>
+                                    </h3>
+                                </div>
+                                <div class="mb-6">
+                                    <h3 class="h4">Newton</h3>
+                                    <p class="mb-0">Ideal for learners who need consistent practice with up to <span class="text-primary">80 queries</span> per month to build a solid foundation.</p>
+                                </div>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-primary">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--card-->
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-12">
+                        <!--card-->
+                        <div class="card bg-primary text-white border-primary">
+                            <div class="card-body">
+                                <div class="mb-5">
+                                    <h3 class="mb-4 d-flex align-items-center">
+                                        <span class="text-white">$10</span>
+                                        <span class="text-white ms-2 fs-6 fw-normal">/
+                                            year</span>
+                                    </h3>
+                                </div>
+                                <div class="mb-6">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <h3 class="h4 mb-0 text-white">Tesla
+                                        </h3>
+                                        <span class="ms-2 badge bg-warning-subtle text-warning-emphasis text-uppercase">most
+                                            popular</span>
+                                    </div>
+                                    <p class="mb-0">Perfect for students seeking more intensive preparation, offering up to <span class="ms-2 badge bg-warning-subtle text-warning-emphasis text-uppercase">200 queries</span> per month to deepen their
+                                    understanding.
+
+                                    </p>
+                                </div>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-white">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--card-->
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-12">
+                        <!--card-->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="mb-5">
+                                    <h3 class="mb-4 d-flex align-items-center">
+                                        <span class="text-dark">$20</span>
+                                        <span class="text-body-tertiary ms-2 fs-6 fw-normal">/
+                                            year</span>
+                                    </h3>
+                                </div>
+                                <div class="mb-6">
+                                    <h3 class="h4">Einstein</h3>
+                                    <p>Best for those committed to mastering their subjects, with up to <span class="text-primary">500 queries</span>  per month for comprehensive coverage and
+                                    advanced practice.</p>
+                                </div>
+                                <div class="d-grid">
+                                    <a href="#" class="btn btn-outline-primary">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--card-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--plans-->
 
 
-   
+    <!--Testimonial start-->
+    <!-- <section class="py-lg-9 py-5 bg-primary-blend-gradient text-dark">
+        <div class="container">
+            <div class="row align-items-center mb-lg-7 mb-5">
+                <div class="col-xl-6 col-lg-5 col-md-12">
+                    <div class="mb-4 mb-lg-0 text-center text-lg-start">
+                        <small class="text-uppercase ls-md fw-semibold">TESTIMONIAL</small>
+                        <h2 class="mt-4">
+                            I am proud of
+                            <span class="text-primary">my results</span>
+                        </h2>
+                        <p class="mb-0">I bring solutions to make life easier for our customers.</p>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-7 col-md-12">
+                    <div class="row gy-4">
+                        <div class="col-md-4">
+                            <div class="text-center text-lg-start">
+                                <h2 class="mb-1">236</h2>
+                                <span>Awards Won</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center text-lg-start">
+                                <h2 class="mb-1">200+</h2>
+                                <span>Completed Projects</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center text-lg-start">
+                                <h2 class="mb-1">10Y</h2>
+                                <span>Customer Satisfaction</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <div class="card shadow-sm h-100 border-0">
+                        <div class="card-body">
+                            <p class="mb-4">“Laborum quis quam. Dolorum et ut quod quia. Voluptas numquam delectus nihil.
+                                Aut enim doloremque et ipsam.”</p>
+                            <h5 class="mb-0">Jitu Chauhan</h5>
+                            <small>Creative Director - Design agency</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <div class="card shadow-sm h-100 border-0">
+                        <div class="card-body">
+                            <p class="mb-4">“Dolorum et ut quod quia laborum quis quam oluptas numquam delectus nihil
+                                ultrices diam ut enim doloremque et ipsam.”</p>
+                            <h5 class="mb-0">Anita Parmar</h5>
+                            <small>Sales Specialist</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <div class="card shadow-sm h-100 border-0">
+                        <div class="card-body">
+                            <p class="mb-4">“Suspendisse facilisis leo at sapien finibus rutrum. Vivamus consectetur viverra
+                                erat. Nullam pretium mauris quis ultricies ultrices.”</p>
+                            <h5 class="mb-0">Sandeep Chauhan</h5>
+                            <small>Marketing Specialist</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <div class="card shadow-sm h-100 border-0">
+                        <div class="card-body">
+                            <p class="mb-4">“Phasellus dapibus nibh eu libero pharetra, interdum accu msan nunc purus ferm
+                                entum sagittis vestibulum nanatibus et magnis.”</p>
+                            <h5 class="mb-0">Manasvi Suthar</h5>
+                            <small>Creative Art Director</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!--Testimonial end-->
 
     <section class="py-xl-9 py-9 ">
         <div class="container">
@@ -336,6 +794,11 @@
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-6">
+                    <div class="mb-4">
+                        <h2 class="mb-3">FAQs</h2>
+                        <p class="mb-0">We've answered a few FAQs to get you
+                            started.</p>
+                    </div>
                     <div class="pb-4 border-bottom">
                         <h4 class="mb-3">How are the questions generated?</h4>
                         <p class="mb-0">Practice50 uses advanced AI algorithms to create questions based on your input parameters, ensuring they are relevant
